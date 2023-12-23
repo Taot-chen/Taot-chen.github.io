@@ -1,3 +1,9 @@
+---
+layout: post
+title: textile_basic
+date: 2023-12-23
+---
+
 # textile 语法
 
 ## 1、文字修饰
