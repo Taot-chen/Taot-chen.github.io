@@ -32,7 +32,7 @@ date: 2023-12-24
               raise argparse.ArgumentTypeError("Boolean value expected")
     ```
 
-## 2、python 
+## 2、python 禁用 print 输出
 有时候在调试代码的时候会打印一些 log，但是调试完又懒得一一去掉，可以通过控制`sys.stdout`来实现`print`输出的开关
 ```python
     import sys
