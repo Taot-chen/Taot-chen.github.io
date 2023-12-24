@@ -145,12 +145,12 @@ date: 2023-12-24
 
         * 偶数阶：
             $$
-            N = \frac{8! \times 3^8}{3} \times {\left( \frac {24! \times 2^{24}}{2^{12} \times 2^{12}} \right)}^{\frac{n-2}{2}} \times {\left( \frac{24!}{{4!}^{6}} \right)}^{\frac{{(n-2)}^{2}}{4}} \times \frac{1}{4 \times 6}
+            N = \frac{8! \times 3^8}{3} \times {\left( \frac {24! \times 2^{24}}{2^{12} \times 2^{12}} \right)}^{\frac{n-2}{2}} \times {\left( \frac{24!} {{4!}^{6}} \right)}^{\frac{{(n-2)}^{2}}{4}} \times \frac{1}{4 \times 6}
             $$
 
         * 奇数阶：
             $$
-            N = \frac{8! \times 3^8}{3} \times \frac{12! \times 2^{12}}{2 \times 2} \times {\left( \frac {24! \times 2^{24}}{2^{12} \times 2^{12}} \right)}^{\frac{n-3}{2}} \times {\left( \frac{24!}{{4!}^{6}} \right)}^{\frac{{(n-2)}^{2} - 1}{4}}
+            N = \frac{8! \times 3^8}{3} \times \frac{12! \times 2^{12}}{2 \times 2} \times {\left( \frac {24! \times 2^{24}}{2^{12} \times 2^{12}} \right)}^{\frac{n-3}{2}} \times {\left( \frac{24!} {{4!}^{6}} \right)}^{\frac{{(n-2)}^{2} - 1}{4}}
             $$
 
 ## 三、魔方解法
