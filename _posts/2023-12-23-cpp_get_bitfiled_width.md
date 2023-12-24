@@ -1,7 +1,7 @@
 ---
 layout: post
 title: cpp_get_bitfield_width
-date: 2023-12-24
+date: 2023-12-23
 ---
 
 

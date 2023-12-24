@@ -1,7 +1,7 @@
 ---
 layout: post
 title: polynomial_fit
-date: 2023-12-24
+date: 2023-12-23
 ---
 
 

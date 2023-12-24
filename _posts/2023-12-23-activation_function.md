@@ -1,7 +1,7 @@
 ---
 layout: post
 title: activation_function
-date: 2023-12-24
+date: 2023-12-23
 ---
 
 ## 激活函数

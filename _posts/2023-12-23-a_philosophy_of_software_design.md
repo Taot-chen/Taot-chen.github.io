@@ -1,7 +1,7 @@
 ---
 layout: post
 title: a_philosophy_of_software_design
-date: 2023-12-24
+date: 2023-12-23
 ---
 
 ## A Philosophy of Software Design 学习笔记
