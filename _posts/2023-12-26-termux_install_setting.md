@@ -151,14 +151,14 @@ pkg install python
 pkg install python2
 
 # clone kali os 相关资源
-git clone https://gitee.com/zhang-955/clone.git
-cd clone/AutoInstallKali
+git clone git@github.com:Taot-chen/kali_install.git
+cd kali_install/install_kali/
 
 # 给脚本添加执行权限
-chmod +x kalinethunter finaltouchup.sh
+chmod +x kali_nethunter touchup.sh
 
 # 安装 kali
-./kalinethunter
+./kali_nethunter
 # 安装完成然后再输入 startkali 启动 kali linux
 
 #start_cmd.txt 添加 启动命令
