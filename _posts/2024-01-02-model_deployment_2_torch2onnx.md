@@ -1,6 +1,6 @@
 ---
 layout: post
-title: model_deployment_3_torch2onnx
+title: model_deployment_2_torch2onnx
 date: 2024-01-02
 ---
 
@@ -58,7 +58,7 @@ trace 方法得到的 ONNX 模型结构，会把 for 循环展开，这样不同
 
 实际上，推理引擎对静态图的支持更好，通常在模型部署时不需要显式地把 PyTorch 模型转成 TorchScript 模型，直接把 PyTorch 模型用 torch.onnx.export 借助 trace 方法导出即可。
 
-### 2 `torch.onnx.export` 参数注解
+#### 1.2 `torch.onnx.export` 参数注解
 
 这里主要记录对于模型部署比较重要的几个参数在模型部署中还如何设置，该函数的 API 文档：https://pytorch.org/docs/stable/onnx.html#functions
 
@@ -71,4 +71,112 @@ trace 方法得到的 ONNX 模型结构，会把 for 循环展开，这样不同
                 dynamic_axes=None, keep_initializers_as_inputs=None, custom_opsets=None, 
                 enable_onnx_checker=True, use_external_data_format=False): 
 ```
-前三个必选参数分别为 torch 模型、模型输入（转 ONNX 的时候的 dummy input）、ONNX 模型的保存路径
+前三个必选参数分别为 torch 模型、模型输入（转 ONNX 的时候的 dummy input）、ONNX 模型的保存路径。
+
+* export_params
+  模型中是否存储模型权重。IR 中一般包含两类信息，模型结构和模型权重，这两类信息可以在同一个文件里存储，也可以分文件存储。
+  一般来说，如果转 onnx 是用来部署的，那么选择设置为 true，存放在同一个文件中；如果是用来在在不同框架间传递模型，则设为 false，分开存放
+
+* input_names, output_names
+  设置输入输出张量的名称。如果不设置，会默认使用 tensor ID（数字） 作为 张量名称。ONNX 的张量名称一般都需要设置，因为大部分推理引擎在设置模型输入和获取输出数据的时候，都是以字典的形式进行访问处理，其中张量名称作为 key，数据作为 value
+
+* opset_version
+  转换时参考哪个 ONNX 算子集版本，默认为 9
+
+* dynamic_axes
+  指定 onnx 动态 shape 的动态维度。
+  为了追求效率，ONNX 默认所有参与运算的张量都是静态的（张量的形状不发生改变）。但在实际应用中，我们又希望模型的输入张量是动态的，尤其是本来就没有形状限制的全卷积模型。因此，我们需要显式地指明输入输出张量的哪几个维度的大小是可变的。
+  ```python
+    import torch 
+ 
+    class Model(torch.nn.Module): 
+        def __init__(self): 
+            super().__init__() 
+            self.conv = torch.nn.Conv2d(3, 3, 3) 
+     
+        def forward(self, x): 
+            x = self.conv(x) 
+            return x 
+     
+     
+    model = Model() 
+    dummy_input = torch.rand(1, 3, 10, 10) 
+    model_names = ['model_static.onnx',  
+    'model_dynamic_0.onnx',  
+    'model_dynamic_23.onnx'] 
+     
+    dynamic_axes_0 = { 
+        'in' : {0， 'batch'}， 
+        'out' : {0, 'batch'} 
+    } 
+     
+    torch.onnx.export(
+        model, 
+        dummy_input, 
+        model_names[0], 
+        input_names=['in'], 
+        output_names=['out']
+    ) 
+
+    torch.onnx.export(
+        model, dummy_input, 
+        model_names[1], 
+        input_names=['in'], 
+        output_names=['out'], 
+        dynamic_axes=dynamic_axes_0
+    ) 
+  ```
+  导出 2 个 ONNX 模型，分别为没有动态维度、第 0 维动态的模型。
+  这里使用字典的方式来表示动态维度，因为  ONNX 要求每个动态维度都有一个名字，否则会有一堆 warning
+
+### 2 torch 转 onnx 时候的额外操作
+#### 2.1 添加额外处理逻辑到 onnx 中
+可以把一些后处理的逻辑放在模型里，来简化除运行模型之外的其他代码。`torch.onnx.is_in_onnx_export()` 可以达到这样的效果，这个函数只会在执行`torch.onnx.export()`的时候返回 true
+```python
+    import torch 
+ 
+    class Model(torch.nn.Module): 
+        def __init__(self): 
+            super().__init__() 
+            self.conv = torch.nn.Conv2d(3, 3, 3) 
+     
+        def forward(self, x): 
+            x = self.conv(x) 
+            if torch.onnx.is_in_onnx_export(): 
+                x = torch.clip(x, 0, 1) 
+            return x 
+```
+这里，仅在模型导出 onnx 时把输出张量的数值限制在[0, 1]之间。使用 `is_in_onnx_export`确让我们方便地在代码中添加和模型部署相关的逻辑。但是，这些突兀的部署逻辑会降低代码整体的可读性。另外，`is_in_onnx_export`只能在每个需要添加部署逻辑的地方都“打补丁”，不方便进行统一的管理。
+
+#### 2.2 中断张量 trace
+如果在 pytorch 的模型脚本中有一些比较离谱的操作，会把某些取决于输入的中间结果变成常量，从而使导出的 ONNX 模型和原来的模型不等价。
+如下是一个 trace 中断的例子：
+```python
+    class Model(torch.nn.Module): 
+        def __init__(self): 
+            super().__init__() 
+     
+        def forward(self, x): 
+            x = x * x[0].item() 
+            return x, torch.Tensor([i for i in x]) 
+     
+    model = Model()       
+    dummy_input = torch.rand(10) 
+    torch.onnx.export(model, dummy_input, 'a.onnx') 
+```
+在导出 ONNX 的时候，会有很多的 warning，并且提示转出来的 onnx 很可能不正确。
+在这个模型里使用了.item()把 torch 中的张量转换成了普通的 Python 变量，还尝试遍历 torch 张量，并用一个列表新建一个 torch 张量。这些涉及张量与普通变量转换的逻辑都会导致最终的 ONNX 模型不太正确。
+另一方面，也可以利用这个性质，在保证正确性的前提下令模型的中间结果变成常量。这个技巧常常用于模型的静态化上。
+
+### 3 pytorch 对 onnx 算子的支持了解
+在做 pytorch model 转换成 onnx model 的时候，PyTorch 一方面会用跟踪法执行前向推理，把遇到的算子整合成计算图；另一方面，PyTorch 还会把遇到的每个算子翻译成 ONNX 中定义的算子。 PyTorch 算子是向 ONNX 对齐的，这个过程中，可能会有这样的情况：
+* 该算子可以一对一地翻译成一个 ONNX 算子。
+* 该算子在 ONNX 中没有直接对应的算子，会翻译成一至多个 ONNX 算子。
+* 该算子没有定义翻译成 ONNX 的规则，报错。
+
+#### 3.1 onnx 算子文档
+在[onnx 官方算子文档](https://github.com/onnx/onnx/blob/main/docs/Operators.md)中可以查看 onnx 算子的定义情况。
+在算子文档中，第一列是算子名，第二列是该算子发生变动的算子集版本号，也就是前面在torch.onnx.export中提到的opset_version表示的算子集版本号。通过查看算子第一次发生变动的版本号，可以知道某个算子是从哪个版本开始支持的；通过查看某算子小于等于opset_version的第一个改动记录，可以知道当前算子集版本中该算子的定义规则。
+
+#### 3.2 pytorch 对 onnx 算子的映射
+在 PyTorch 中，和 ONNX 有关的定义全部放在`torch.onnx`目录中。`symbolic_opset{n}.py`（符号表文件）即表示 PyTorch 在支持第 n 版 ONNX 算子集时新加入的内容。
