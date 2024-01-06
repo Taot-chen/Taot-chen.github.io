@@ -14,7 +14,7 @@ date: 2024-01-05
 
 ### 1 使用 github 仓库做图片库生成图片引用链接
 
-对于我的 gitpages 仓库 https://github.com/username/username.github.io，会被默认作为 Github Pages 的内容来源。上传到 username.github.io 的内容，都可以通过 https://username.github.io/ 访问到，可以通过目录进行不同类型、来源和作用的图片区分。
+对于 gitpages 仓库 https://github.com/username/username.github.io，会被默认作为 Github Pages 的内容来源。上传到 username.github.io 的内容，都可以通过 https://username.github.io/ 访问到，可以通过目录进行不同类型、来源和作用的图片区分。
 
 使用链接：https://username.github.io/完整目录/完整文件名.文件后缀 就可以引用到图片。图片可以通过git版本管理工具进行上传，也可以在github的网页上上传。这样就可以把图片和文档分离开，文档可以更精简；并且图片还可以通过版本管理工具进行统一管理。
 
