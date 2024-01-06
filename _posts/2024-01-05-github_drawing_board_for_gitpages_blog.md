@@ -25,3 +25,6 @@ date: 2024-01-05
 * 更新 markdown 文件到 https://github.com/username/username.github.io 仓库的 _post 文件夹
 *上面的第二、三步都可以通过脚本自动完成，实际用起来和其他的付费图床体验差不离。*
 
+
+*另外，还有一种比较方便的方式，在本地 markdown 编辑器设置好，添加图片的时候，使用相对路径，这样在 push 的时候，就直接 push 所有 markdown 文件和 图片文件的改动即可*
+
