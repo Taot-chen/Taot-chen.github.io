@@ -30,4 +30,5 @@ ONNX 在底层是用 Protobuf 定义的。*Protobuf，全称 **Protocol Buffer**
 
 #### 1.2 onnx 结构定义
 
-![onnx结构定义](https://github.com/Taot-chen/Taot-chen.github.io/blob/main/blog_images/github_drawing_board_for_gitpages_blog/onnx%E7%BB%93%E6%9E%84%E5%AE%9A%E4%B9%89.png)
+![onnx结构定义](../blog_images/github_drawing_board_for_gitpages_blog/onnx结构定义.png)
+
