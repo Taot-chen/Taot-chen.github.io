@@ -2,6 +2,8 @@
 layout: post
 title: c_advance_2_struct
 date: 2023-12-28
+tags: [c_cpp]
+author: taot
 ---
 
 ## 结构体

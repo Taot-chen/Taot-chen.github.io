@@ -2,6 +2,8 @@
 layout: post
 title: model_deployment_4_modify_tune_onnx
 date: 2024-01-06
+tags: [onnx]
+author: taot
 ---
 
 ## 修改和调试 onnx 模型

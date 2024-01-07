@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_5_pointer
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 指针

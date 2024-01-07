@@ -2,6 +2,8 @@
 layout: post
 title: python_plot_with_new_timesroman
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 ## Python绘图时使用Times New Roman字体

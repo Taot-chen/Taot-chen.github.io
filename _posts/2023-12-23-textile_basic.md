@@ -2,6 +2,8 @@
 layout: post
 title: textile_basic
 date: 2023-12-23
+tags: [tools]
+author: taot
 ---
 
 # textile 语法

@@ -2,6 +2,8 @@
 layout: post
 title: markdown_math_formulas
 date: 2023-12-24
+tags: [tools]
+author: taot
 ---
 
 ## MarkDown数学公式基本语法

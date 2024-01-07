@@ -2,6 +2,8 @@
 layout: post
 title: c_advance_4_linked_list_function_pointer.md
 date: 2023-12-28
+tags: [c_cpp]
+author: taot
 ---
 
 ## 链表和函数指针

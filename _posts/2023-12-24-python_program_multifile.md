@@ -2,6 +2,8 @@
 layout: post
 title: python_program_multifile
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 ## Python多文件编程

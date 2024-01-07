@@ -2,6 +2,8 @@
 layout: post
 title: python_read_txt
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 ## Python TXT 文件读取

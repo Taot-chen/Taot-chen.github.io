@@ -2,6 +2,8 @@
 layout: post
 title: github_drawing_board_for_gitpages_blog
 date: 2024-01-05
+tags: [tools]
+author: taot
 ---
 
 ## 借助 github 仓库来作为 gitpages 博客图床

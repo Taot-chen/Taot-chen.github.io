@@ -2,6 +2,8 @@
 layout: post
 title: polynomial_fit
 date: 2023-12-24
+tags: [algorithm]
+author: taot
 ---
 
 

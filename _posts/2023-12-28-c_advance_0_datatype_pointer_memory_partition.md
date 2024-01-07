@@ -2,6 +2,8 @@
 layout: post
 title: c_advance_0_datatype_pointer_memory_partition
 date: 2023-12-28
+tags: [c_cpp]
+author: taot
 ---
 
 ## 数据类型-变量-内存四区-指针

@@ -2,6 +2,8 @@
 layout: post
 title: magic_cube_with_math
 date: 2023-12-23
+tags: [algorithm]
+author: taot
 ---
 
 

@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_2_operators_expressions
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 运算符与表达式

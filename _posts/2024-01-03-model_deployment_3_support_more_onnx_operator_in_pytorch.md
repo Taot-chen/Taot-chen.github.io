@@ -2,6 +2,8 @@
 layout: post
 title: model_deployment_3_support_more_onnx_operator_in_pytorch
 date: 2024-01-03
+tags: [onnx]
+author: taot
 ---
 
 ## 在 pytorch 中支持更多的 onnx 算子

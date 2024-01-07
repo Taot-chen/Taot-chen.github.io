@@ -2,6 +2,8 @@
 layout: post
 title: deploy_stable_diffusion_linux
 date: 2024-01-06
+tags: [AI]
+author: taot
 ---
 
 ## 在 Linux 安装 stable diffusion

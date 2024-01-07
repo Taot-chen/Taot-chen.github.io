@@ -2,6 +2,8 @@
 layout: post
 title: mlir_basic
 date: 2023-12-24
+tags: [mlir]
+author: taot
 ---
 
 ## MLIR 初学

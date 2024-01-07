@@ -2,6 +2,8 @@
 layout: post
 title: identify_circles_and_get_average_radius
 date: 2023-12-24
+tags: [algorithm]
+author: taot
 ---
 
 ## 识别图片中的圆形并求所有圆形的平均半径

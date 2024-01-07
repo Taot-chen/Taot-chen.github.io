@@ -2,6 +2,8 @@
 layout: post
 title: design_patterns_basic
 date: 2023-12-24
+tags: [c_cpp]
+author: taot
 ---
 
 ## 设计模式初识

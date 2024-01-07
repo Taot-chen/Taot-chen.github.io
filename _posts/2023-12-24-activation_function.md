@@ -2,6 +2,8 @@
 layout: post
 title: activation_function
 date: 2023-12-24
+tags: [AI]
+author: taot
 ---
 
 ## 激活函数

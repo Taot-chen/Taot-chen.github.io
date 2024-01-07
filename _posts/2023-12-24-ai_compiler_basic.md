@@ -2,6 +2,8 @@
 layout: post
 title: ai_compiler_basic
 date: 2023-12-24
+tags: [AI]
+author: taot
 ---
 
 ## AI compiler 介绍

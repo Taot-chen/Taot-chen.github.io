@@ -2,6 +2,8 @@
 layout: post
 title: python_basic
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 # Python学习笔记

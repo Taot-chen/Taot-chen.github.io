@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_7_customized_types
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 复合类型（自定义类型）

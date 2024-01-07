@@ -2,6 +2,8 @@
 layout: post
 title: matplotlib_greek_charactor
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 ## Matplotlib绘图时希腊字母的显示

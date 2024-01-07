@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_3_array_string
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 数组和字符串

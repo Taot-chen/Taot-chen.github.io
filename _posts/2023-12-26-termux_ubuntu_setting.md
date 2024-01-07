@@ -2,6 +2,8 @@
 layout: post
 title: termux_ubuntu_setting
 date: 2023-12-26
+tags: [termux]
+author: taot
 ---
 
 ## termux_ubuntu 系统配置

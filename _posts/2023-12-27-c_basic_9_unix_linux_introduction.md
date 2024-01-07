@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_9_unix_linux_introduction
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## Unix/Linux操作系统

@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_6_memory_management
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 内存管理

@@ -2,6 +2,8 @@
 layout: post
 title: cpp_class_tamplete_basic
 date: 2023-12-24
+tags: [c_cpp]
+author: taot
 ---
 
 ## C++ 类模板初识

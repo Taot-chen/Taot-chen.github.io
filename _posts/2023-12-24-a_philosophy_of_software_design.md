@@ -2,6 +2,8 @@
 layout: post
 title: a_philosophy_of_software_design
 date: 2023-12-24
+tags: [architecture]
+author: taot
 ---
 
 ## A Philosophy of Software Design 学习笔记

@@ -2,6 +2,8 @@
 layout: post
 title: python_languge_features
 date: 2023-12-23
+tags: [python]
+author: taot
 ---
 
 # python languge features

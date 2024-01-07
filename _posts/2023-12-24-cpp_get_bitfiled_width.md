@@ -2,6 +2,8 @@
 layout: post
 title: cpp_get_bitfield_width
 date: 2023-12-24
+tags: [c_cpp]
+author: taot
 ---
 
 

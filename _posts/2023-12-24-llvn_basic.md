@@ -2,6 +2,8 @@
 layout: post
 title: llvm_basic
 date: 2023-12-24
+tags: [compiler]
+author: taot
 ---
 
 ## LLVM 初识

@@ -2,6 +2,8 @@
 layout: post
 title: c_advance_1_string_pointer
 date: 2023-12-28
+tags: [c_cpp]
+author: taot
 ---
 
 ## 字符串与指针

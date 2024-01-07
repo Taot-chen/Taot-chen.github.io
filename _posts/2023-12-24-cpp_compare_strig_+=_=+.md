@@ -2,6 +2,8 @@
 layout: post
 title: cpp_compare_string_+=_=+
 date: 2023-12-24
+tags: [c_cpp]
+author: taot
 ---
 
 ## std::string +=  && =+ compare

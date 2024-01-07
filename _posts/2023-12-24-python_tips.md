@@ -2,6 +2,8 @@
 layout: post
 title: python_tips
 date: 2023-12-24
+tags: [python]
+author: taot
 ---
 
 # **Python 的一些小技巧总结**

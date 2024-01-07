@@ -2,6 +2,8 @@
 layout: post
 title: tips_for_linux_command
 date: 2023-12-23
+tags: [tools]
+author: taot
 ---
 
 # linux 命令行的一些小技巧

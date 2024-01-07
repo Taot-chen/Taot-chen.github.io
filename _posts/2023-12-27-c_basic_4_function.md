@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_4_function
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 函数

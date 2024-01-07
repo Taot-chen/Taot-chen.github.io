@@ -2,6 +2,8 @@
 layout: post
 title: personal_deepLearning_workstation_setup
 date: 2023-12-27
+tags: [AI]
+author: taot
 ---
 
 ## 搭建个人深度学习工作站

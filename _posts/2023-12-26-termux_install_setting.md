@@ -2,6 +2,8 @@
 layout: post
 title: termux_install_setting
 date: 2023-12-26
+tags: [termux]
+author: taot
 ---
 
 ## termux 配置和系统安装

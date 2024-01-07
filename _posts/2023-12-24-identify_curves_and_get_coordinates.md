@@ -2,6 +2,8 @@
 layout: post
 title: identify_curves_and_get_coordinates
 date: 2023-12-24
+tags: [algorithm]
+author: taot
 ---
 
 ## 识别图片中曲线并获取其坐标

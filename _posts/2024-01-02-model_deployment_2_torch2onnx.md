@@ -2,6 +2,8 @@
 layout: post
 title: model_deployment_2_torch2onnx
 date: 2024-01-02
+tags: [onnx]
+author: taot
 ---
 
 ## pytorch 转 onnx

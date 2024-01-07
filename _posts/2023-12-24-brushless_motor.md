@@ -2,6 +2,8 @@
 layout: post
 title: brushless_motor
 date: 2023-12-24
+tags: [hardware]
+author: taot
 ---
 
 ## 无刷电机控制原理

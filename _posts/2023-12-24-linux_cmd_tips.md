@@ -2,6 +2,8 @@
 layout: post
 title: linux_cmd_tips
 date: 2023-12-24
+tags: [tools]
+author: taot
 ---
 
 ### Tips of Terminal

@@ -2,6 +2,8 @@
 layout: post
 title: c_advance_3_file_api
 date: 2023-12-28
+tags: [c_cpp]
+author: taot
 ---
 
 ## 文件api

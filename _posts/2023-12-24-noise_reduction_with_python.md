@@ -2,6 +2,8 @@
 layout: post
 title: nosie_reduction_with_python
 date: 2023-12-24
+tags: [algorithm]
+author: taot
 ---
 
 

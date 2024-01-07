@@ -2,6 +2,8 @@
 layout: post
 title: pretrained_model_download_usage
 date: 2023-12-28
+tags: [AI]
+author: taot
 ---
 
 ## 预训练模型下载和使用

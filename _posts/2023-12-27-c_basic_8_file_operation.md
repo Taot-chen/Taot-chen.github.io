@@ -2,6 +2,8 @@
 layout: post
 title: c_basic_8_file_operation
 date: 2023-12-27
+tags: [c_cpp]
+author: taot
 ---
 
 ## 文件操作

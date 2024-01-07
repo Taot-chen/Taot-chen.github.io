@@ -1,3 +1,10 @@
+---
+layout: post
+title: c_basic_1_datatype
+date: 2023-12-27
+tags: [c_cpp]
+author: taot
+
 ## C语言概述
 
 ### 0、体系介绍

@@ -2,6 +2,8 @@
 layout: post
 title: ai_inference_accelerate
 date: 2023-12-24
+tags: [AI]
+author: taot
 ---
 
 ## AI 图像推理加速

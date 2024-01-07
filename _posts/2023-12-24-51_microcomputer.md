@@ -2,6 +2,8 @@
 layout: post
 title: 51_microcomputer
 date: 2023-12-24
+tags: [hardware]
+author: taot
 ---
 
 ## 51 单片机
