@@ -2,6 +2,9 @@
 layout: post
 title: build_blog_with_gitpages
 date: 2023-12-29
+tags: [geek]
+comments: true
+author: taot
 ---
 
 # build blog with gitpages
