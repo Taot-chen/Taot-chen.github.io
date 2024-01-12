@@ -38,15 +38,16 @@ author: taot
     ```bash
         # 启动，会自动下载依赖
         ./webui.sh --xformers
-        '''
-        这里可能会出现一些报错
-        1. Cannot locate TCMalloc（improves CPU memory usage），这个报错是因为缺少 libgoogle-perftools4 和 libtcmalloc-minimal4，直接安装即可
-        sudo apt install libgoogle-perftools4 libtcmalloc-minimal4 -y
-
-        2. This scripts must not be launched as root, aborting...
-        解决方法：
-        bash webui.sh -f
-        '''
     ```
 
+### 2 报错解决
+'''
+这里可能会出现一些报错
+1. Cannot locate TCMalloc（improves CPU memory usage），这个报错是因为缺少 libgoogle-perftools4 和 libtcmalloc-minimal4，直接安装即可
+sudo apt install libgoogle-perftools4 libtcmalloc-minimal4 -y
+
+1. This scripts must not be launched as root, aborting...
+解决方法：
+bash webui.sh -f
+'''
 

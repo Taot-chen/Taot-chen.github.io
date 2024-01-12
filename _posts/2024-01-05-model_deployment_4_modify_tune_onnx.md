@@ -37,7 +37,7 @@ ONNX 在底层是用 Protobuf 定义的。*Protobuf，全称 **Protocol Buffer**
 
 ![onnx结构定义](../blog_images/github_drawing_board_for_gitpages_blog/onnx结构定义.png)
 
-如图所示，一个 ONNX 模型可以用 ModelProto 类表示。ModelProto 包含了版本、创建者等日志信息，还包含了存储计算图结构的 graph。GraphProto 类则由输入张量信息、输出张量信息、节点信息组成。张量信息 ValueInfoProto 类包括张量名、基本数据类型、形状。节点信息 NodeProto 类包含了算子名、算子输入张量名、算子输出张量名。
+如上图所示，一个 ONNX 模型可以用 ModelProto 类表示。ModelProto 包含了版本、创建者等日志信息，还包含了存储计算图结构的 graph。GraphProto 类则由输入张量信息、输出张量信息、节点信息组成。张量信息 ValueInfoProto 类包括张量名、基本数据类型、形状。节点信息 NodeProto 类包含了算子名、算子输入张量名、算子输出张量名。
 让我们来看一个具体的例子。假如我们有一个描述 output=a*x+b 的 ONNX 模型 model，用 print(model) 可以输出以下内容：
 
 ```python
