@@ -37,9 +37,13 @@ ONNX 在底层是用 Protobuf 定义的。*Protobuf，全称 **Protocol Buffer**
 
 ![onnx结构定义](../blog_images/github_drawing_board_for_gitpages_blog/onnx结构定义.png)
 
-如上图所示，一个 ONNX 模型可以用 ModelProto 类表示。ModelProto 包含了版本、创建者等日志信息，还包含了存储计算图结构的 graph。GraphProto 类则由输入张量信息、输出张量信息、节点信息组成。张量信息 ValueInfoProto 类包括张量名、基本数据类型、形状。节点信息 NodeProto 类包含了算子名、算子输入张量名、算子输出张量名。
-让我们来看一个具体的例子。假如我们有一个描述 output=a*x+b 的 ONNX 模型 model，用 print(model) 可以输出以下内容：
+如上图所示，一个 ONNX 模型可以用 ModelProto 类表示：
+* ModelProto 包含了版本、创建者等日志信息，还包含了存储计算图结构的 graph;
+* GraphProto 类则由输入张量信息、输出张量信息、节点信息组成;
+* 张量信息 ValueInfoProto 类包括张量名、基本数据类型、形状;
+* 节点信息 NodeProto 类包含了算子名、算子输入张量名、算子输出张量名。
 
+假如有一个描述 output=a*x+b 的 ONNX 模型，使用 print(model) 可以输出以下内容：
 ```python
 ir_version: 8 
 graph { 
@@ -108,9 +112,18 @@ graph {
 opset_import {version: 15} 
 ```
 
-对应上文中的类图，这个模型的信息由 ir_version，opset_import 等全局信息和 graph 图信息组成。而 graph 包含一个乘法节点、一个加法节点、三个输入张量 a, x, b 以及一个输出张量 output。在下一节里，我们会用 API 构造出这个模型，并输出这段结果。
+对应上文中的类图，这里打印出来的是这个 onnx 的模型的表示。这个模型的信息由 ir_version，opset_import 等全局信息和 graph 图信息组成。graph 包含一个乘法节点、一个加法节点、三个输入张量 a, x, b 以及一个输出张量 output。
 
 
 ### 2 读写 onnx 模型
 
 #### 2.1 构造 onnx 模型
+
+根据前文的 onnx 结构图，可以了解到 onnx 模型按照这样的形式组织起来：
+* ModelProto
+  * GraphProto
+    * NodeProto
+    * ValueInfoProto
+
+现在，让我们抛开 PyTorch，尝试完全用 ONNX 的 Python API 构造一个描述线性函数 output=a*x+b 的 ONNX 模型。我们将根据上面的结构，自底向上地构造这个模型。
+首先，我们可以用 helper.make_tensor_value_info 构造出一个描述张量信息的 ValueInfoProto 对象。如前面的类图所示，我们要传入张量名、张量的基本数据类型、张量形状这三个信息。在 ONNX 中，不管是输入张量还是输出张量，它们的表示方式都是一样的。因此，这里我们用类似的方式为三个输入 a, x, b 和一个输出 output 构造 ValueInfoProto 对象。如下面的代码所示：

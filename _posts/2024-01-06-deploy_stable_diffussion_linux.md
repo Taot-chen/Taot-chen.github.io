@@ -2,7 +2,7 @@
 layout: post
 title: deploy_stable_diffusion_linux
 date: 2024-01-06
-tags: [AI]
+tags: [llm]
 author: taot
 ---
 
