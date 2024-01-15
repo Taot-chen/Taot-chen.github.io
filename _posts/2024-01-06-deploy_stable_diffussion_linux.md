@@ -79,7 +79,7 @@ print(torch.__version__)
 print(torch.cuda.is_available())
 
 ```
-![Alt text](image-2.png)
+![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/sd5.png)
 
 测试:
 ```python
@@ -94,13 +94,13 @@ print(torch.cuda.get_device_name(0))
 print(torch.rand(3,3).cuda())
 
 ```
-![Alt text](image-1.png)
+![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/sd4.png)
 
 检查cudnn是否可用:
 ```python
 print(torch.backends.cudnn.version())
 
 ```
-![Alt text](image.png)
+![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/sd3.png)
 
 
