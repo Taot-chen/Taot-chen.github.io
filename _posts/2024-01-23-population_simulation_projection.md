@@ -15,10 +15,10 @@ author: taot
 
 **Lee-Carter模型** 是业界比较主流的人口死亡模型，认为人口的死亡率与时间和年龄相关，设 第 t 年的时候年龄为 x 岁的人群的死亡率为 $m(t, x)$，根据 Lee-Carter模型给出的死亡率公式：
 $$
-m(x, t) = e^{a(x)} \times (e^{b(x)})^{k(t)}
+m(x, t) = e^{a(x)} · (e^{b(x)})^{k(t)}
 $$
 $$
-\Rightarrow ln (m(x, t)) = a(x) + b(x) \times k(t)
+\Rightarrow ln (m(x, t)) = a(x) + b(x) · k(t)
 $$
 
 其中 $a(x), b(x), k(t)$ 需要通过历史数据拟合得到，在利用上面的公式预测未来不同年龄人群的失望率。
