@@ -2,7 +2,7 @@
 layout: post
 title: Introduction_to_vLLM
 date: 2024-04-04
-tags: [LLM]
+tags: [llm]
 author: taot
 ---
 

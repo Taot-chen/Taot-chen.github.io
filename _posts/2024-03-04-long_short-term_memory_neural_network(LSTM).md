@@ -2,7 +2,7 @@
 layout: post
 title: long_short-term_memory_neural_network(LSTM)
 date: 2024-03-04
-tags: [LSTM]
+tags: [lstm]
 author: taot
 ---
 

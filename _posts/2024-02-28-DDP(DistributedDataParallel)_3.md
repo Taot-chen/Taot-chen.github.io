@@ -2,7 +2,7 @@
 layout: post
 title: DDP(DistributedDataParallel)_3
 date: 2024-02-29
-tags: [LLM]
+tags: [llm]
 author: taot
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Disk_I-O_performance_optimization
 date: 2024-03-01
-tags: [OS]
+tags: [os]
 author: taot
 ---
 

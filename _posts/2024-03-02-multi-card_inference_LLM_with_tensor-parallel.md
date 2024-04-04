@@ -2,7 +2,7 @@
 layout: post
 title: multi-card_inference_LLM_with_tensor-parallel
 date: 2024-03-02
-tags: [LLM]
+tags: [llm]
 author: taot
 ---
 

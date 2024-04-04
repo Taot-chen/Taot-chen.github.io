@@ -2,7 +2,7 @@
 layout: post
 title: deploys_LLM_vLLM-vs-TGI
 date: 2024-04-05
-tags: [LLM]
+tags: [llm]
 author: taot
 ---
 
