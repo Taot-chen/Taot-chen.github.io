@@ -1,10 +1,12 @@
 ---
 layout: post
-title: LSTM_time_series_forecasting
-date: 2024-01-23
-tags: [algorithms]
+title: long_short-term_memory_neural_network(LSTM)
+date: 2024-03-04
+tags: [LSTM]
 author: taot
 ---
+
+
 
 ## LSTM 长短期记忆递归神经网络
 
@@ -20,7 +22,8 @@ author: taot
 
 传统神经网络结构示意图：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_1.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/8763df15709d4e4490b8ed1c70b8ee19.png#pic_center)
+
 
 其中：
 * 输入层：可以包含多个神经元，可以接收多维的信号输入（特征信息）；
@@ -48,13 +51,15 @@ author: taot
 
 RNN是一种特殊的神经网路结构，其本身是包含循环的网络，允许信息在神经元之间传递：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_2.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/9b6de20da6e34f5f947dbc071e4f64d1.png#pic_center)
+
 
 图示是一个 RNN 结构示意图，图中的 $A$ 表示神经网络模型，$X_t$ 表示模型的输入信号， $h_t$ 表示模型的输出信号。如果去掉 A 的输出信号传递到 A 的箭头，这个网络模型与普通的神经网络结构相同。 A 的输出信号传递到 A 的箭头，允许 A 将信息传递给 A，神经网络将自己的输出作为输入。
 
 在输入信号是一个时间序列信号的时候，输入信号和时间 t 相关。在 t 时刻，输入信号 $X_t$ 作为神经网络 A 的输入， A 的输出分流成两部分，一部分输出给 $h_t$ ，一部分作为一个隐藏信号流被输入到 A 中，在下一时刻输入信号 $X_{t+1}$ 时，这部分隐藏分信号流也被作为输入信号输入到了 A 中。此时神经网络 A 就同时接受了 t 时刻和 t+1 时刻的信号输入了，此时的输出信号又将被传递到下一时刻的 A 中，把上面那个图根据时间 t 展开：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_3.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/3a0cc413ed9d4acca38430357160b83d.png#pic_center)
+
 
 如上图所示， $t=0$ 时刻的输出给 $t=1$ 时刻的模型 A 作为输入，$t=1$ 时刻的输出给 $t=2$ 时刻的模型 A 作为 输入……。相当于 RNN 在时间序列上把自己复制了很多遍，每个模型都对应一个时刻的输入，并且当前时刻的输出还作为下一时刻的模型的输入信号。
 
@@ -69,13 +74,15 @@ RNN利用了神经网络的“内部循环”来保留时间序列的上下文�
 
 在这个例子中可以看出，想要精确地处理时间序列，有时候我们只需要用到最近的时刻的信息。例如预测“我喜欢妈妈做的菜”最后这个词“菜”，此时信息传递是这样的：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_4.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/8da005be7e734291b8d89f619d3382db.png#pic_center)
+
 
 “菜”这个词与“我”、“喜欢”、“妈妈”、“做”、“的”这几个词关联性比较大，距离也比较近，所以可以直接利用这几个词进行最后那个词语的推测。
 
 有时候我们又需要用到很早以前时刻的信息，例如预测“我最常说汉语”最后的这个词“汉语”。此时信息传递是这样的：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_5.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/f0f636c59e1d4001956ffbfa83da0124.png#pic_center)
+
 
 此时，我们要预测“汉语”这个词，仅仅依靠“我”、“最”、“常”、“说”这几个词还不能得出我说的是汉语，必须要追溯到更早的句子“我是一个中国人”，由“中国人”这个词语来推测我最常说的是汉语。因此，这种情况下，我们想要推测“汉语”这个词的时候就比前面那个预测“菜”这个词所用到的信息就处于更早的时刻。
 
@@ -92,15 +99,18 @@ RNN虽然在理论上可以保留所有历史时刻的信息，但在实际使�
 
 普通的RNN模型中，其重复神经网络模块的链式模型如下图所示，这个重复的模块只有一个非常简单的结构，一个单一的神经网络层（例如tanh层），这样就会导致信息的处理能力比较低。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_6.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/5d7e77a6e44647c080f3f0a05fe0f7ef.png#pic_center)
+
 
 LSTM在此基础上将这个结构改进了，不再是单一的神经网络层，而是4个，并且以一种特殊的方式进行交互。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_7.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/ec1bd92ff3d949e393f500a933854288.png#pic_center)
+
 
 图中的模块分为以下几种：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_8.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/40e0dd9e27494083846fbd7809325f7b.png#pic_center)
+
 
 * 黄色方块：表示一个神经网络层（Neural Network Layer）；
 * 粉色圆圈：表示按位操作或逐点操作（pointwise operation），例如向量加和、向量乘积等；
@@ -112,21 +122,25 @@ LSTM在此基础上将这个结构改进了，不再是单一的神经网络层�
 
 LSTM的关键是细胞状态（直译：cell state），表示为 $C_t$，用来保存当前LSTM的状态信息并传递到下一时刻的LSTM中，也就是RNN中那根“自循环”的箭头。当前的LSTM接收来自上一个时刻的细胞状态 $C_{t-1}$，并与当前LSTM接收的信号输入 $x_t$，共同作用产生当前LSTM的细胞状态 $C_t$。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_9.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/00cf674475d04341911489cc377b2706.png#pic_center)
+
 
 在LSTM中，采用专门设计的“门”来引入或者去除细胞状态 $C_t$ 中的信息。门是一种让信息选择性通过的方法。有的门跟信号处理中的滤波器有点类似，允许信号部分通过或者通过时被门加工了；有的门也跟数字电路中的逻辑门类似，允许信号通过或者不通过。这里所采用的门包含一个 sigmoid 神经网络层和一个按位的乘法操作，如下图所示：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_10.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/a25b239f5ae04b92a673dd0250758f95.png#pic_center)
+
 
 其中黄色方块表示sigmoid神经网络层，粉色圆圈表示按位乘法操作。sigmoid神经网络层可以将输入信号转换为 0 到 1 之间的数值，用来描述有多少量的输入信号可以通过。0 表示“不允许任何量通过”，1 表示“允许所有量通过”。sigmoid神经网络层起到类似下图的sigmoid函数所示的作用：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_11.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/60b249113ec44fa7b501c5d4ad9f670b.png#pic_center)
+
 
 其中，横轴表示输入信号，纵轴表示经过sigmoid函数以后的输出信号。
 
 LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。这三个门用来控制LSTM的信息保留和传递，最终反映到细胞状态 $C_t$ 和输出信号 $h_t$，如下图所示：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_12.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/b37f02a7cfc64aa7a0a997d0b3feda14.png#pic_center)
+
 
 图中标示了LSTM中各个门的构成情况和相互之间的关系，其中：
 
@@ -138,7 +152,8 @@ LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。�
 
 顾名思义，遗忘门的作用就是用来“忘记”信息的。在LSTM的使用过程中，有一些信息不是必要的，因此遗忘门的作用就是用来选择这些信息并“忘记”它们。遗忘门决定了细胞状态 $C_{t-1}$ 中的哪些信息将被遗忘。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_13.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/a9638f5d3e244f1abd5a395aab56dfd3.png#pic_center)
+
 
 * 左边高亮的结构就是遗忘门，包含一个sigmoid神经网络层（黄色方框，神经网络参数为 $W_f, b_f$）
 * 接收 t 时刻的输入信号 $x_t$ 和 $t-1$ 时刻LSTM的上一个输出信号 $h_{t-1}$，这两个信号进行拼接以后共同输入到sigmoid神经网络层中，然后输出信号 $f_t$，$f_t$ 是一个 0 到1之间的数值，并与 $C_{t-1}$ 相乘来决定 $C_{t-1}$ 中的哪些信息将被保留，哪些信息将被舍弃。
@@ -151,7 +166,8 @@ LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。�
 
 记忆门的作用与遗忘门相反，它将决定新输入的信息 $x_t$ 和 $h_{t-1}$ 中哪些信息将被保留。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_14.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/fef6de514bee44998b524187785621ef.png#pic_center)
+
 
 
 如上图所示，记忆门包含2个部分。第一个是包含sigmoid神经网络层（输入门，神经网络网络参数为 $W_i, b_i$）和一个 tanh 神经网络层（神经网络参数为 $W_c, b_c$）。
@@ -166,13 +182,15 @@ LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。�
 
 有了遗忘门和记忆门，就可以更新细胞状态 $C_t$ 了。
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_15.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/6b001b25405e42a1a20940473d0bc3f0.png#pic_center)
+
 
 这里将遗忘门的输出 $f_t$ 与上一时刻的细胞状态 $C_{t-1}$ 相乘来选择遗忘和保留一些信息，将记忆门的输出与从遗忘门选择后的信息加和得到新的细胞状态 $C_t$。这表示 t 时刻的细胞状态 $C_t$ 包含了此时需要丢弃的 t-1 时刻传递的信息和 t 时刻从输入信号获取的需要新加入的信息 $i_t \cdot \tilde{C_t}$。$C_t$ 将继续传递到 t+1 时刻的LSTM网络中，作为新的细胞状态传递下去。
 
 #### 3.6 输出门
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_16.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/f389f8b753ab4efda00104fb7da7996d.png#pic_center)
+
 
 
 如上面左图所示，输出门就是将t-1时刻传递过来并经过了前面遗忘门与记忆门选择后的细胞状态 $C_{t-1}$，与 t-1 时刻的输出信号 $h_{t-1}$ 和 t 时刻的输入信号 $x_t$ 整合到一起作为当前时刻的输出信号。
@@ -181,20 +199,23 @@ LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。�
 
 其中，tanh 函数是激活函数的一种，函数图像为：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_17.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/4102371642fd4b81aba8c5360133ae43.png#pic_center)
+
 
 
 #### 3.7 LSTM 的一些变体
 
 ##### 3.7.1 在门上增加窥视孔
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_18.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/a779c6fa73e9434abf33c70e4877d2bc.png#pic_center)
+
 
 这是2000年Gers和Schemidhuber教授提出的一种LSTM变体。图中，在传统的LSTM结构基础上，每个门（遗忘门、记忆门和输出门）增加了一个“窥视孔”（Peephole），也可以在使用时选择只对部分门加入窥视孔。
 
 ##### 3.7.2 整合遗忘门和输入门
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_19.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/258941d343d84023a259554be3240846.png#pic_center)
+
 
 与传统的LSTM不同的是，这个变体不需要分开来确定要被遗忘和记住的信息，采用一个结构搞定。在遗忘门的输出信号值（0 到 1之间）上，用 1 减去该数值来作为记忆门的状态选择，表示只更新需要被遗忘的那些信息的状态。
 
@@ -202,7 +223,8 @@ LSTM主要包括三个不同的门结构：遗忘门、记忆门和输出门。�
 
 改进比较大的一个LSTM变体叫Gated Recurrent Unit (GRU)，目前应用较多。结构图如下
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_20.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/cfc5470bff924f348f5dec2002ae98db.png#pic_center)
+
 
 GRU主要包含2个门：重置门和更新门。GRU混合了细胞状态 $C_t$ 和隐藏状态 $h_{t-1}$ 为一个新的状态，使用 $h_t$ 来表示。 该模型比传统的标准LSTM模型简单。
 
@@ -356,6 +378,7 @@ if __name__ == '__main__':
 
 该模型在训练集和测试集上的结果如下：
 
-![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/lstm_21.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/7b68dd45da444459896d5c583d32dbe7.png#pic_center)
+
 
 图中，红色虚线的左边表示该模型在训练数据集上的表现，右边表示该模型在测试数据集上的表现。可以看到，使用LSTM构建训练模型，可以仅仅使用正弦函数在 t 时刻的值作为输入来准确预测 t 时刻的余弦函数值，不用额外添加当前的时间信息、速度信息等。
