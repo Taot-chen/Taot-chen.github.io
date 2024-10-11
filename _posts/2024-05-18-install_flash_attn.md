@@ -2,7 +2,7 @@
 layout: post
 title: install_flash_attn
 date: 2024-05-18
-tags: [git]
+tags: [python]
 author: taot
 ---
 
