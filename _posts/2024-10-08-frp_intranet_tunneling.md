@@ -91,7 +91,7 @@ sudo chmod 755 ./frps
 
 6500端口是上面配置的，使用上面配置的用户名和密码 admin/admin123 登录即可。
 
-![alt text](image-116.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-116.png)
 
 ### 2 客户端配置（工作站）
 
