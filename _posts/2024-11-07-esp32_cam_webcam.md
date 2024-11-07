@@ -15,7 +15,7 @@ https://www.cnblogs.com/qiaoyurensheng/articles/esp32cam_001.html
 
 ESP32-CAM是小尺寸的摄像头模组该模块可以作为最小系统独立工作，尺寸仅为 27*40.5*4.5mm，可广泛应用于各种物联网场合，适用于家庭智能设备、工业无线控制、无线监控、QR无线识别，无线定位系统信号以及其它物联网应用，是物联网应用的理想解决方案。
 
-![alt text](image-93.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-93.png)
 
 产品特性:
 * 采用低功耗双核32位CPU，可作应用处理器
@@ -32,7 +32,7 @@ ESP32-CAM是小尺寸的摄像头模组该模块可以作为最小系统独立�
 * 支持二次开发
 
 ESP32cam 的接口引脚图如下所示：
-![alt text](image-94.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-94.png)
 
 ### 1 arduino IDE
 
@@ -50,31 +50,31 @@ ESP32cam 的接口引脚图如下所示：
   # 配置链接
 	https://dl.espressif.com/dl/package_esp32_index.json
   ```
-    ![alt text](image-95.png)
+    ![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-95.png)
 
 * 在 Arduino IDE 中，找到 工具>开发板>开发板开发板管理，搜索 ESP32 或者直接选择 ESP32 Wrover Module
-  ![alt text](image-96.png)
-  ![alt text](image-97.png)
+  ![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-96.png)
+  ![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-97.png)
 
 ### 2 内网视频实时查看
 
 #### 2.1 选择 文件>示例>ESP32>Camera>CameraWebServer ,进入示例代码界面
 
-![alt text](image-98.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-98.png)
 
 #### 2.2 修改示例代码中的相关参数
 
 * 修改示例代码中的 wifi 和密码的名称。
 * 修改示例代码中的摄像头类型为 CAMERA_MODEL_AI_THINKER 。
-  ![alt text](image-99.png)
+  ![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-99.png)
 
 #### 2.3 运行结果
 上传成功后，按一下 ESP32cam 开发板上的 RST 按键 ，重新启动开发板。
 选择 工具>串口监视器，查看串口中输出的 ip，并用浏览器打开 ip 即可实时查看视频画面。
 
-![alt text](image-100.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-100.png)
 
-![alt text](image-101.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-101.png)
 
 #### 2.4 代码
 
