@@ -145,4 +145,4 @@ vector-add-performance:
 15  134217728.0  543.356430  546.578161
 ```
 
-![alt text](./images/image.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/triton-1.png)
