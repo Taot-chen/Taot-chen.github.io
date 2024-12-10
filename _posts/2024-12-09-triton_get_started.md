@@ -289,17 +289,36 @@ python3 01-vector-add.py
 
 **Triton dialect：**
 * OP 定义：include/triton/Dialect/IR/TritonOps.td
-    tt.call, tt.func, tt.return, tt.load, tt.store, tt.dot 等 OP
+    * tt.call
+    * tt.func
+    * tt.return
+    * tt.load
+    * tt.store
+    * tt.dot
+    * ...
 * 优化 pass：lib/Dialect/Triton/Transforms
-    CombineOpsPass, ReorderBroadcastPass, RewriterTensorPointerPass, LoopUnrollPass
+    * CombineOpsPass
+    * ReorderBroadcastPass
+    * RewriterTensorPointerPass
+    * LoopUnrollPass
 
 **triton dialect --> tritonGPU Dialect:**
 转换 pass：lib/Conversion/TritonToTritonGPU/TritonToTritonGPUPass.cpp
 
 **TritonGPU Dialect:**
 * Op 定义：include/triton/Dialect/TritonGPU/IR/TritonGPUOps.td
-    async_wait, alloc_tensor, insert_slice_async, convert_Layout 等 OP
+    * async_wait
+    * alloc_tensor
+    * insert_slice_async
+    * convert_Layout
+    * ...
 * Layout 属性定义：include/triton/Dialect/TritonGPU/IR/TritonGPUAttrDefs.td
-    Blocked Layout, MMA Layout, DotOperand Layout, Slice Layout, Shared Layout
+    * Blocked Layout
+    * MMA Layout
+    * DotOperand Layout
+    * Slice Layout
+    * Shared Layout
 * 优化 pass：lib/Dialect/TritonGPU/Transforms
-    AccelerateMatmul, Coalesce, CombineTensorSelectAndIf
+    * AccelerateMatmul
+    * Coalesce
+    * CombineTensorSelectAndIf
