@@ -113,3 +113,34 @@ sudo apt install nvidia-driver-535-server-open  # 根据自己的n卡可选驱�
 nameserver 8.8.8.8
 ```
 
+重启系统，`/etc/resolv.conf`文件可能被还原，要确保 DNS 配置持久性，可以按照以下步骤操作：
+```bash
+# 确认 systemd-resolved 服务正在运行
+systemctl status systemd-resolved
+
+# 配置 systemd-resolved
+# 编辑 /etc/systemd/resolved.conf 文件
+sudo vim /etc/systemd/resolved.conf
+# 在 [Resolve] 部分添加 DNS 服务器地址
+[Resolve]
+DNS=8.8.8.8
+
+# 保存文件并重启 systemd-resolved 服务
+sudo systemctl restart systemd-resolved
+# 创建一个符号链接 /etc/resolv.conf 指向 systemd 生成的文件(非必要)：
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+```
+
+**终极解决方案**
+
+前面的方案有些情况不一定有效，可以使用下面的方法：
+```bash
+sudo apt-get install resolvconf
+cd /etc/resolvconf/resolv.conf.d/
+sudo vim base
+# 添加
+nameserver 114.114.114.114
+nameserver 114.114.114.115
+```
+
+更新配置`sudo resolvconf -u`
