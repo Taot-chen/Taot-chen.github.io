@@ -144,3 +144,17 @@ nameserver 114.114.114.115
 ```
 
 更新配置`sudo resolvconf -u`
+
+
+### 3 libcusparse.so.12: undefined symbol: __nvJitLinkAddData_12_1, version libnvJitLink.so.12
+
+安装最新的 torch-2.5.1 之后，`import torch`遇到报错：
+```bash
+libcusparse.so.12: undefined symbol: __nvJitLinkAddData_12_1, version libnvJitLink.so.12
+```
+有帖子说[pytorch依赖没有正确链接](https://blog.csdn.net/qq_42730750/article/details/139582293)导致，需要重新正确连接；
+
+也有帖子通过[升级 CUDA 来解决](https://blog.csdn.net/yourlei/article/details/135224435);
+
+由于我对于 torch 的版本目前没有使用最新版的需求，因此通过回退 torch 的版本也可以解决。通过安装 2.3.0 版本可以正常使用。
+
