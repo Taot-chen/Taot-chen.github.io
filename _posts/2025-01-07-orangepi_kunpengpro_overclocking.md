@@ -165,7 +165,7 @@ deinit_acl(context, DEVICE_ID)
 ```
 
 输出结果：
-![Alt text](image-181.png)
+![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-181.png)
 
 此时的推理耗时 0.62s。
 
@@ -214,6 +214,6 @@ python3 infer.py
 ```
 
 输出结果：
-![Alt text](image-182.png)
+![Alt text](../blog_images/github_drawing_board_for_gitpages_blog/image-182.png)
 
 此时的推理耗时 0.45s。
