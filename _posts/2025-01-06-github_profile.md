@@ -3,7 +3,7 @@
 Guthub 个人主页 （官方称呼是 profile）可以展示很多有用的信息，例如添加一个首页被访问次数的计数器，一个被 Star 与 Commit 的概览信息，以及各种技能标签，设备标签等，还可以利用 wakatime 显示你最近编码各类语言的使用时长。
 
 默认的主页会显示其仓库信息、提交信息，例如 [Linux 之父 Linus 的 GitHub 主页](https://github.com/torvalds) 长这样：
-![alt text](223c1ae6853011bf234fc3205f14d162.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_1.png)
 
 Github 关于主页定制的说明文档：[Setting up and managing your GitHub profile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile)
 
@@ -22,7 +22,7 @@ Taot-chen/Taot-chen is a special repository.
 Its README.md will appear on your public profile.
 ```
 
-![alt text](image-124.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_2.png)
 
 ### 2 主页定制
 
@@ -45,7 +45,7 @@ Its README.md will appear on your public profile.
 显示图标、主题样式等配置可以参考官网文档。
 
 * 效果：
-![alt text](image-125.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_3.png)
   
 
 #### 2.2 GitHub 使用语言统计
@@ -57,7 +57,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](image-127.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_4.png)
 
 
 
@@ -75,7 +75,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](image-128.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_5.png)
 
 
 
@@ -92,7 +92,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](13820bc83ece8434e01e2eaef40f9c20.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_6.png)
 
 
 
@@ -110,7 +110,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](image-130.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_7.png)
 
 
 #### 2.6 GitHub 访客徽章
@@ -125,7 +125,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](image-131.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_8.png)
 
 
 #### 2.7 GitHub 活动统计图
@@ -140,7 +140,7 @@ Its README.md will appear on your public profile.
 ```
 
 * 效果：
-![alt text](image-132.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_9.png)
 
 
 
@@ -214,7 +214,7 @@ Its README.md will appear on your public profile.
 #### 2.14 贪吃蛇
 
 默认的提交信息是这样的：
-![alt text](image-133.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_10.png)
 
 可以将其变成一个动画：一只贪吃蛇挨个吃掉图里的绿点。
 
@@ -278,7 +278,7 @@ jobs:
 这段代码的目的是：加载贪吃蛇动画，且贪吃蛇的暗亮风格与你的 Github 的暗亮风格进行自动适配。
 
 前面的 workflow 里面设置的是每隔 2 小时更新一次，可以先手动跑一次。点击 generate animation​，点击 Run workflow​：
-![alt text](image-134.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_11.png)
 
 稍等片刻，显示运行成功，再次回到仓库主页就会看到贪吃蛇动画已被加载。
 
@@ -389,11 +389,11 @@ fatal: unable to access 'https://github.com/Taot-chen/Taot-chen/': The requested
 Error: Process completed with exit code 128.
 ```
 大概率是因为没有配置 actions 的写权限，导致无​法写入 svg 文件。添加权限即可：
-![alt text](image-135.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_12.png)
 
 
 * 效果
-![alt text](image-136.png)
+![alt text](../blog_images/github_drawing_board_for_gitpages_blog/github_13.png)
 
 
 #### 2.17 感谢参与者
