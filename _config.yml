@@ -22,12 +22,14 @@ description: "精诚所至，金石为开 | 不赌天意，不猜人心"
 navigation:
   - name: 首页
     url: /
+  - name: 文章
+    url: /archive
   - name: 归档
     url: /archive
-  - name: 项目
-    url: /projs
   - name: 标签
     url: /tags
+  - name: 项目
+    url: /project
   - name: 关于
     url: /about
 
