@@ -147,6 +147,13 @@ toc: true
 
 paginate: 10
 
+# Use the following plug-ins
+plugins:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
+  - jekyll-include-cache
+
 # The base URL of your site
 baseurl: "https://taot-chen.github.io/"
 
