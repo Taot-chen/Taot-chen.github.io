@@ -2,7 +2,7 @@
 layout: post
 title: build_and_train_llm_from_scratch
 date: 2025-07-03
-tags: [cpp]
+tags: [llm]
 author: taot
 ---
 
